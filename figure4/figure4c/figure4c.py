@@ -140,7 +140,7 @@ def main() -> None:
     tc_rows = [
         r
         for r in range(2, len(df))
-        if str(df.iloc[r, 0]).strip() == "Text Classification"
+        if str(df.iloc[r, 0]).strip() in ["Text Classification", "Natural Language Inference", "Semantic Similarity"]
     ]
     unmatched: list[str] = []
     for r in tc_rows:
@@ -158,7 +158,7 @@ def main() -> None:
             records.append(
                 {
                     "model": model,
-                    "task_type": "Text Classification",
+                    "task_type": "Classification",
                     "task_classification": raw_task,
                     "accuracy": acc,
                     "stigma_rate": stigma_rate,
